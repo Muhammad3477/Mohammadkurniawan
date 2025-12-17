@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio M.Kurniawan</title>
+  <style>
+    /* ===== RESET DAN DASAR ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #0b3c5d, #1e88e5);
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(11, 60, 93, 0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    nav .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ffd200;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #ffd200;
+    }
+
+    /* ===== HOME ===== */
+    #home {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, #0b3c5d, #1e88e5);
+    }
+
+    .bg-internet {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%;
+      max-width: 900px;
+      opacity: 0.2;
+      z-index: 1;
+    }
+
+    .home-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    #home h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #ffd200;
+    }
+
+    #home p {
+      font-size: 1.2rem;
+      color: #ffffff;
+    }
+
+    /* ===== ABOUT ===== */
+    #about {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+      background: #e3f2fd;
+      text-align: center;
+      color: #0b3c5d;
+    }
+    #about h2 {
+      color: #0b3c5d;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    #about p {
+      max-width: 800px;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    /* ===== TUGAS ===== */
+    #tugas {
+      min-height: 100vh;
+      background: linear-gradient(180deg, #0b3c5d, #1e88e5);
+      padding: 100px 20px;
+      text-align: center;
+      color: white;
+    }
+    #tugas h2 {
+      color: #ffd200;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      animation: pulse 2s infinite;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      width: 90%;
+      margin: 0 auto;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: transform 0.4s, background 0.4s;
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 210, 0, 0.25);
+    }
+    .card h3 {
+      color: #ffd200;
+      margin-bottom: 10px;
+    }
+    .links a {
+      display: inline-block;
+      background: rgba(255, 210, 0, 0.15);
+      margin: 4px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      color: #ffd200;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .links a:hover {
+      background: rgba(255, 210, 0, 0.35);
+      transform: scale(1.1);
+    }
+
+    /* ===== KONTAK ===== */
+    #kontak {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #e3f2fd;
+      text-align: center;
+      color: #0b3c5d;
+      padding: 50px 20px;
+    }
+    #kontak h2 {
+      color: #0b3c5d;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 320px;
+    }
+    input, textarea {
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #1e88e5;
+      outline: none;
+      font-size: 1rem;
+    }
+    button {
+      background: #1e88e5;
+      border: none;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #0b3c5d;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0b3c5d;
+      text-align: center;
+      padding: 15px;
+      color: #ffd200;
+      font-size: 0.9rem;
+    }
+
+    /* ===== ANIMASI ===== */
+    @keyframes pulse {
+      0%, 100% {text-shadow: 0 0 10px #ffd200;}
+      50% {text-shadow: 0 0 25px #ffd200;}
+    }
+
+    @media (max-width: 700px) {
+      #home h1 {font-size: 2rem;}
+      nav {padding: 10px 30px;}
+      .cards {width: 95%;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Teknik Informatika</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#tugas">Tugas</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <section id="home">
+    <img src="https://cdn-icons-png.flaticon.com/512/921/921490.png" class="bg-internet">
+    <div class="home-content">
+      <h1 id="typing"></h1>
+      <p>Mahasiswa Teknik Informatika</p>
+    </div>
+  </section>
+
+  <script>
+    const text = "Halo, Saya M.Kurniawan-211011400913";
+    let index = 0;
+    function typeEffect() {
+      if (index < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 100);
+      }
+    }
+    typeEffect();
+  </script>
+
+  <section id="about">
+    <h2>Tentang Saya</h2>
+    <p>Saya adalah mahasiswa Teknik Informatika Universitas Pamulang yang berfokus pada pengembangan website dan teknologi modern.</p>
+  </section>
+
+  <section id="tugas">
+    <h2>Daftar Tugas Pertemuan</h2>
+    <div class="cards" id="daftarTugas"></div>
+  </section>
+
+  <section id="kontak">
+    <h2>Hubungi Saya</h2>
+    <form>
+      <input type="text" placeholder="Nama Anda" required>
+      <input type="email" placeholder="Email Anda" required>
+      <textarea rows="4" placeholder="Pesan Anda"></textarea>
+      <button type="submit">Kirim Pesan</button>
+    </form>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    © 2025 M.Kurniawan | Mahasiswa Teknik Informatika
+  </footer>
+
+  <!-- ===== SCRIPT OTOMATIS TUGAS ===== -->
+  <script>
+    // === Otomatis generate card tugas pertemuan (1–21) ===
+    const daftarTugas = document.getElementById("daftarTugas");
+
+    const totalPertemuan = 21;  // jumlah pertemuan
+    const totalLatihan = 2;     // jumlah latihan per pertemuan
+
+    for (let i = 1; i <= totalPertemuan; i++) {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      // Buat link latihan otomatis
+      let links = "";
+      for (let j = 1; j <= totalLatihan; j++) {
+        links += `<a href="pertemuan${i}/latihan${j}.html" target="_blank">Latihan ${j}</a>`;
+      }
+
+      // Isi ke dalam card
+      card.innerHTML = `
+        <h3>Pertemuan ${i}</h3>
+        <div class="links">${links}</div>
+      `;
+      daftarTugas.appendChild(card);
+    }
+  </script>
+
+</body>
+</html>
